@@ -1,0 +1,71 @@
+service: partner
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+  environment:
+   # PARTNER_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+      Resource: "*"
+
+custom:
+  dynamodb:
+  # If you only want to use DynamoDB Local in some stages, declare them here
+    stages:
+      - dev
+    start:
+      migrate: true
+
+resources:
+  Resources:
+    PartnerDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      ConsistentRead: true
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: "id"
+            AttributeType: "S"   
+        KeySchema:
+          -
+            AttributeName: "id"
+            KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: "NEW_AND_OLD_IMAGES"
+        TableName: 'PartnerTable'
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+  - serverless-mocha-plugin
+  - serverless-jest-plugin
+
+functions:
+  partnerSubmit:
+    handler: partner.submit
+    memorySize: 128
+    description: Submit an partner data.
+    events:
+      - http: 
+          path: partners
+          method: post
+  partnersList:
+    handler: partner.list
+    memorySize: 128
+    description: List all partners
+    events:
+      - http: 
+          path: partners
+          method: get  

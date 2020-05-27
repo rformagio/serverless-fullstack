@@ -1,0 +1,23 @@
+
+  <header class="container-form">
+    <h1 class="txt-white">CADASTRO</h1>
+    <p class="txt-white">Inclus&atilde;o de s&oacute;cios.</p>  
+      <div>
+        <app-partner-form class="app-form" (onCreated)="onPartnerSubmit($event)"></app-partner-form>
+      </div>
+  </header>
+  <div class="container-data">
+    <h1 class="txt-black">DADOS</h1>
+    <p class="txt-black">Lista de s&oacute;cios cadastrados e gr&aacute;fico de participac&atilde;o.</p>
+    <div class="container-data-div">
+      <div class="div-box">
+    <div class="box">
+      <app-partner-table class="app-table" [partners]="partners"></app-partner-table>
+    </div>
+
+    <div class="box">
+      <app-partner-chart class="app-chart" [partners]="partners"></app-partner-chart>
+    </div>
+    </div>
+    </div>
+  </div>

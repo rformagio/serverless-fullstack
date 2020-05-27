@@ -1,0 +1,73 @@
+.container-form {
+    width: 100%;
+    display: inline-block;
+    background: #00b9de;
+    min-height: 240px;
+    margin: 30px auto;
+    vertical-align:middle;
+}
+
+.container-form div {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.app-form {
+    width:70%;
+}
+
+h1, h2, p {
+    text-align : center;
+}
+
+.txt-white {
+  color: #FFF;
+  font-family: sans-serif;
+}
+
+.txt-black {
+    color: #000;
+    font-family: sans-serif;
+}
+
+.container-data {
+  width: 100%;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.container-data-div {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.div-box {
+    display: inline-flex;
+    justify-content: center;
+    vertical-align: middle;
+    width: 80%; 
+}
+
+.box {
+    width: 50%;
+    vertical-align: middle;
+}
+
+.app-table {
+    vertical-align: middle;
+}
+
+.partner-table {
+    overflow-x:auto;
+}
+/*
+@media (max-width: 477px) {
+    .container-data section {
+        width: 100%;
+    }
+}
+*/

@@ -1,0 +1,40 @@
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: sans-serif;
+}
+
+tr:nth-of-type(odd) {
+    background: rgb(215, 240, 250);
+}
+
+th {
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 0.8em
+}
+
+tr td:last-child {
+    text-align: center;
+}
+
+.info {
+    width: 90%;
+    margin: 0 auto;
+    color: #00529B;
+    background-color: #BDE5F8;
+    border: 1px solid #BDE5F8;
+    border-radius:.5em;
+    padding: 5px;
+    font-family: sans-serif;
+    font-size: 0.8em
+}
